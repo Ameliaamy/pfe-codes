@@ -1,0 +1,14 @@
+from Crypto.Cipher import DES
+from Crypto.Util.Padding import pad
+from Crypto.Random import get_random_bytes
+
+clef = get_random_bytes(8)                           #clé de 8-byte=64-bits
+texte_claire = b'j ai utilise le module cryptography dans Python'
+cipher = DES.new(clef, DES.MODE_ECB) #le padding
+taille_du_block = DES.block_size
+texte_clair_padded = pad(texte_claire, taille_du_block)
+chiffre = cipher.encrypt(texte_clair_padded)     #chiffrement du texte clair
+dechiffre = cipher.decrypt(chiffre)
+print("le texte chiffré est:", chiffre)
+print("le texte claire est:",dechiffre)
+print(clef)
