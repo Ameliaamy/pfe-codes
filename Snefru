@@ -1,0 +1,14 @@
+import hashlib
+def snefru(path):
+    sha512_hash = hashlib.sha512(path.encode()).digest()
+    half_length = len(sha512_hash) // 2
+    sha512_part1 = sha512_hash[:half_length]
+    sha512_part2 = sha512_hash[half_length:]
+    concatenated = sha512_part1 + sha512_part2
+    snefru_hash = hashlib.sha512(concatenated).hexdigest()
+    return snefru_hash
+path = 'Cryptographic System Design: Apply differential linear cryptanalysis as a means to design and develop robust cryptographic systems. Utilize the insights gained from the analysis to strengthen encryption algorithms, key management techniques, or overall system architecture.'
+valeur_de_hachage = snefru(path)
+print("la valeur de hachage est:",valeur_de_hachage)
+print("la taille de cette valeur est:",len(valeur_de_hachage))
+
