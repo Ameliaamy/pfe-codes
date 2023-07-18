@@ -11,4 +11,5 @@ chiffre = cipher.encrypt(texte_clair_padded)     #chiffrement du texte clair
 dechiffre = cipher.decrypt(chiffre)
 print("le texte chiffré est:", chiffre)
 print("le texte claire est:",dechiffre)
-print(clef)
+print("la clé utilisée est",clef)
+
