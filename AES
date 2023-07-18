@@ -9,4 +9,4 @@ cipher_text = fernet.encrypt(message)         # Chiffrement du message
 decrypted_text = fernet.decrypt(cipher_text)  # Déchiffrement du message
 print("Message chiffré:", cipher_text)
 print("Message déchiffré:", decrypted_text.decode())
-
+print("la clé utilisée est",clef)
